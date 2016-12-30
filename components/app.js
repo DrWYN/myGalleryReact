@@ -1,67 +1,3 @@
-// import React from 'react'
-// import { Router, Route, Link, IndexRoute, Redirect } from 'react-router'
-// import ReactDOM from "react-dom";
-// import {hashHistory} from 'react-router';
-
-// const App = React.createClass({
-//   render() {
-//     return (
-//       <div>
-//         <h1>App</h1>
-//         <ul>
-//           <li><Link to="/about">About</Link></li>
-//           <li><Link to="/inbox">Inbox</Link></li>
-//         </ul>
-//         {this.props.children}
-//       </div>
-//     )
-//   }
-// })
-
-// const About = React.createClass({
-//   render() {
-//     return <h3>About</h3>
-//   }
-// })
-
-// const Inbox = React.createClass({
-//   render() {
-//     return (
-//       <div>
-//         <h2>Inbox</h2>
-//         {this.props.children || "Welcome to your Inbox"}
-//       </div>
-//     )
-//   }
-// })
-
-// const Message = React.createClass({
-//   render() {
-//     return <h3>Message {this.props.params.id}</h3>
-//   }
-// })
-
-// const Dashboard = React.createClass({
-//   render(){
-//     return <div>Welcome to the app!</div>
-//   }
-// })
-
-// ReactDOM.render((
-//   <Router history={hashHistory}>
-//     <Route path="/" component={App}>
-//       {/* 当url为/时渲染Dashboard*/}
-//       <IndexRoute component={Dashboard} />
-//       <Route path="about" component={About} />
-//       <Route path="inbox" component={Inbox}>
-//         <Route path="/messages/:id" component={Message} />
-//       {/*跳转 /inbox/messages/:id 到 /messages/:id*/}
-//         <Redirect from="messages/:id" to="/messages/:id" />
-//       </Route>
-//     </Route>
-//   </Router>
-// ), document.getElementById('react'))
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -69,6 +5,8 @@ import Utils from '../utils/utils'
 import imageDatasArr from '../data/imageDatas'
 import ImageFigure from './imageFigure'
 import ControllerUnit from './ControllerUnit'
+
+import "../styles/main.scss"
 
 let GalleryByReactApp = React.createClass({
 
@@ -246,7 +184,6 @@ let GalleryByReactApp = React.createClass({
                 isCenter: false
             };
         }
-
         imageFigures.push(<ImageFigure key={index} data={value} ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
 
         controllerUnits.push(<ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
